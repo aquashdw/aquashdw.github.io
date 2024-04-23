@@ -1,0 +1,107 @@
+---
+title: "Java 개요"
+excerpt: "Java 언어에 대한 간략한 소개"
+categories:
+  - Java
+  - Language
+---
+
+# Java
+
+Java는 [Sun Microsystems](https://en.wikipedia.org/wiki/Sun_Microsystems)에서 1995년에 개발한 프로그래밍 언어이다.
+James Gosling이 만들었으며, 전 세계적으로 많이 사용하는 언어이기도 하다. 특히 우리나라의 경우
+Spring Framework를 바탕으로 절대적인 점유율을 보여준다.
+
+```java
+public class HelloJava {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}
+```
+
+## Write Once, Run Anywhere
+
+사실 어느정도 옛날 이야기긴 하지만, 등장 당시에는 Java를 상징하는 슬로건이기도 한 말이다.
+이전까지 사용되는 언어의 경우, 일반적으로 사용하고 있는 컴퓨터 OS, Architecture에 따라
+프로그램을 별도로 컴파일, 빌드하는 등의 행위가 필요했다. Java는 JVM을 활용해, JVM이 설치된 컴퓨터라면
+어디에서든 같은 결과물(`.class`, `.jar` 등)을 이용할 수 있다.
+
+### Java Virtual Machine
+
+C언어는 빌드 또는 컴파일되면 컴퓨터가 바로 이해할 수 있는 어셈블리어로 컴파일된다.
+그래서 어떤 컴퓨터에서 빌드하였는지, 어떤 OS에서 빌드하였는지에 따라 그 결과가 달라질 수 있다.
+
+아래 코드를 각각 Macos와 Ubuntu에서 `gcc`를 사용해 결과를 확인해봤다.
+
+```cpp
+#include <stdio.h>
+
+int main() {
+    printf("Hello, World!\n");
+    return 0;
+}
+```
+
+Macos에서 `gcc -S`를 수행한 결과의 첫 다섯줄은 다음과 같고,
+
+```
+	.section	__TEXT,__text,regular,pure_instructions
+	.build_version macos, 13, 3	sdk_version 13, 3
+	.globl	_main                           ; -- Begin function main
+	.p2align	2
+_main:                                  ; @main
+```
+
+Ubuntu에서 `gcc -S`를 수행한 결과의 첫 다섯줄은 다음과 같다.
+
+```
+	.file	"hello.c"
+	.text
+	.section	.rodata
+.LC0:
+	.string	"Hello, World!"
+```
+
+정확히는 어떤 컴파일러를 사용했는지에 따라 다르겠지만, 결국 그 컴파일러가 자신이
+실행된 환경에서 동작하도록 컴파일을 할테니 비슷하게 생각할 수 있지 않을까.
+
+Java는 컴파일의 결과가 어셈블리어로 나오지 않는다. **Java Bytecode**라는 형태로 나오게 된다.
+당연히 기계어와 1:1 대응되는 어셈블리어가 아니기 때문에, 바로 컴퓨터에서 실행이 불가능하다.
+대신 이 Bytecode를 실행하는 JVM이 이해할 수 있다. 자신의 프로젝트 폴더를 열심히 찾아보자. 그 안에 `.class`로 끝나는 기묘한 파일이 있는데,
+이 파일이 Bytecode를 저장한 파일이다.
+
+![Java Bytecode를 담은 `.class`파일](/assets/images/java/1.png)
+
+그리고 각 컴퓨터 환경에 맞게 만들어진 JVM은, 자신이 이해한 Java Bytecode를 컴퓨터가 이해할 수 있는
+기계어로 번역해준다.
+
+![JVM이 Bytecode를 컴퓨터가 이해할 수 있게 번역해준다.](/assets/images/java/2.png)
+
+결국 Java의 Write Once, Run Anywhere의 특징은 JVM이 가져다주는 특징이다.
+Java를 사용하는 개발자는 Java로 코드를 작성하고, 여러가지 도구를 통해 Java 
+코드를 Java Bytecode(또는 그 모음)로 변환한다. 그러면 컴퓨터에 맞게 만들어진 JVM이
+해당 Bytecode를 실행해준다.
+
+### JDK, JRE
+
+즉 JVM이 실행할 수 있는 결과물은 Java Bytecode이다. 우리가 작성한 Java 코드도
+어느 시점에는 Java Bytecode로 전환이 되어야 실행이 가능하다.
+Java의 입장에서는 이 과정이 컴파일하는 과정이 된다. 그리고 이 과정을 진행해주는 역할을
+하는게 JDK, Java Development Kit이다.
+
+한편 JDK에는 Java를 Bytecode로 변환하는 `javac`와 같은 다양한 기능들이 포함되어 있지만,
+Java로 만든 프로그램을 실행하는데는 그 모든 기능들이 필요하지 않을 수 있다.
+이 경우 모든 기능이 포함된 JDK 대신, Bytecode를 실행하기 위한 JVM,
+그리고 JVM이 사용할 라이브러리(기본 패키지)가 포함된 JRE를 사용할 수 있다.
+JRE는 Java Runtime Enviornment로, Java로 만들어진 프로그램들이 실행될 수 있는
+환경을 조성해준다.
+
+![JDK, JRE, JVM](/assets/images/java/3.png)
+
+## 결론
+
+긴 역사를 가진 프로그래밍 언어이다. Python 같은데는 비하기 어렵지만, 비교적 쉬운 편이라고도 생각한다.
+여러 레퍼런스를 찾아볼 수 있고, Intellij IDEA CE 기준으로도 개발 환경 구성은 매우 쉽다.
+또한 Spring Boot의 등장은 Java를 이용한 웹 개발의 난이도도 많이 낮춘 만큼,
+초심자도 얼마든지 시도해볼 만한 언어가 아닌가 싶다.
