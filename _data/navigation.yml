@@ -3,7 +3,7 @@ main:
   - title: "Daily"
     url: /categories/일상/
   - title: "Java"
-    url: /categories/java/
+    url: /tag/java/
 #  - title: "Categories"
 #    url: /categories/
 #  - title: "Quick-Start Guide"
@@ -16,3 +16,11 @@ main:
 #    url: /collection-archive/
 #  - title: "Sitemap"
 #    url: /sitemap/
+
+java-basic:
+  - title: Java Basics
+    children:
+      - title: 1. Java 개요
+        url: /java basics/java-1/
+      - title: 2. Intellij IDEA CE 준비
+        url: /java basics/java-2/
