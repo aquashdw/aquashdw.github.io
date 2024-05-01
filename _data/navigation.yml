@@ -26,3 +26,5 @@ java-basic:
         url: /java basics/java-2/
       - title: 3. 변수와 입출력
         url: /java basics/java-3/
+      - title: 4. 연산자
+        url: /java basics/java-4/
