@@ -27,19 +27,47 @@
     .tooltip {
       font-family: "Press Start 2P", DungGeunMo, monospace;
     }
+    a {
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: none;
+    }
   </style>
 </head>
-<body id="nescss">
+<body>
 <header class="sticky-top mb-3 border-bottom border-3 bg-white">
   <nav class="navbar">
-    <div class="container-fluid align-items-baseline px-5 pt-3">
-      <div>
-        <h1 class="navbar-brand"><i class="nes-logo"></i> aquashdw</h1>
-        <p>This is my portfolio.</p>
+    <div class="container-fluid align-items-center px-5 pt-3">
+      <div class="navbar-brand">
+        <h1><i class="nes-logo"></i> aquashdw</h1>
+        <p class="mb-1 mb-md-3">This is my portfolio.</p>
+        <div id="navbar-dropdown" class="dropdown d-block d-md-none">
+          <button id="navbar-dropdown-toggler" class="nes-btn" type="button" data-bs-toggle="dropdown">Links</button>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="https://solved.ac/profile/aquashdw" target="_blank" class="dropdown-item">
+                <i class="nes-icon coin"></i> Solved.ac</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/jeeho-park-191241185" target="_blank" class="dropdown-item">
+                <i class="nes-icon linkedin"></i> Linkedin</a>
+            </li>
+            <li>
+              <a href="https://github.com/aquashdw" target="_blank" class="dropdown-item">
+                <i class="nes-icon github"></i> aquashdw's GitHub</a>
+            </li>
+            <li>
+              <a href="https://github.com/crstudio-io" target="_blank" class="dropdown-item">
+                <i class="nes-icon github"></i> CRStudio.io GitHub</a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div>
+      <div class="d-none d-md-block">
         <p class="mb-0 text-end">Links</p>
         <div>
+          <a href="https://solved.ac/profile/aquashdw" target="_blank"><i class="nes-icon coin" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="solved.ac"></i></a>
           <a href="https://www.linkedin.com/in/jeeho-park-191241185" target="_blank"><i class="nes-icon linkedin" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="Linkedin"></i></a>
           <a href="https://github.com/aquashdw" target="_blank"><i class="nes-icon github" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="aquashdw"></i></a>
           <a href="https://github.com/crstudio-io" target="_blank"><i class="nes-icon github" data-bs-toggle="tooltip" data-bs-placement="left" data-bs-title="crstudio.io"></i></a>
@@ -49,8 +77,38 @@
   </nav>
 </header>
 <main class="container">
-  <h1>Hello World!!!</h1>
-  <h1>안녕 세상</h1>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 py-5 d-flex flex-column text-center justify-content-center align-items-center">
+      <h1>Jeeho Park</h1>
+      <h2>aquashdw</h2>
+    </div>
+    <div class="col-md-3"></div>
+  </div>
+  <h2 id="about"><a href="#about" class="me-3">#</a>About</h2>
+  <div class="row">
+    <p>
+      I'm Jeeho Park, Web Developer from South Korea.
+      I earned my bachelor's degree of Software Engineering in
+      <a href="https://www.cau.ac.kr/index.do" target="_blank">Chung-Ang University, Seoul Campus</a>
+      (<a href="https://neweng.cau.ac.kr/index.do">eng</a>).
+    </p>
+    <p>
+      I started my career as a developer in <a href="https://maum.ai" target="_blank">Maum.ai</a>
+      (formerly named Mindslab) a AI Service company,
+      as a backend developer using Java + Spring Framework in July 2018.
+      Most of my job involved in delivering APIs to end users, occasionally developing mobile applications with Flutter.
+    </p>
+    <p>
+      On 2021, I left the company and started to deliver IT lectures.
+      I have worked and am working primarily as a freelancer,
+      delivering lectures based on HTML, CSS, JS, Python, Django, Java, Spring.
+    </p>
+    <p>
+      I am currently interested in JavaScript, mainly in React and NextJS.
+      I plan to make my portfolio more rich and ample by the end of the year.
+    </p>
+  </div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script>
