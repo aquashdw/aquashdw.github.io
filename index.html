@@ -204,8 +204,8 @@
             doesn't work, so the controls are a bit mispositioned, along with sizing issues.
           </p>
           <div class="d-flex align-items-end" style="column-gap: 1rem;">
-            <button id="minesweeper-open-btn" class="nes-btn is-success">Try</button>
-            <a class="nes-btn text-bg-info" href="https://mine.aquashdw.me" target="_blank">Visit</a>
+            <!-- <button id="minesweeper-open-btn" class="nes-btn is-success">Try</button> -->
+            <!-- <a class="nes-btn text-bg-info" href="https://mine.aquashdw.me" target="_blank">Visit</a> -->
             <a href="https://github.com/aquashdw/flutter-minesweeper" target="_blank">
               <i class="nes-icon github"></i>
             </a>
@@ -238,21 +238,21 @@
   const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 </script>
 <script>
-  // minesweeper dialog control script
-  const minesweeperDialog = document.getElementById("minesweeper-dialog");
-  const minesweeperIFrame = minesweeperDialog.querySelector("iframe");
-  document.getElementById("minesweeper-open-btn").addEventListener("click", event => {
-    minesweeperDialog.showModal();
-  });
-  document.getElementById("minesweeper-close-btn").addEventListener("click", event => {
-    minesweeperDialog.close();
-  })
+  // // minesweeper dialog control script
+  // const minesweeperDialog = document.getElementById("minesweeper-dialog");
+  // const minesweeperIFrame = minesweeperDialog.querySelector("iframe");
+  // document.getElementById("minesweeper-open-btn").addEventListener("click", event => {
+  //   minesweeperDialog.showModal();
+  // });
+  // document.getElementById("minesweeper-close-btn").addEventListener("click", event => {
+  //   minesweeperDialog.close();
+  // })
 
-  const mutationObserver = new MutationObserver((mutations, observer) => {
-    if (minesweeperDialog.open) minesweeperIFrame.src = "https://mine.aquashdw.me";
-    else minesweeperIFrame.src = "";
-  });
-  mutationObserver.observe(minesweeperDialog, { attributes: true });
+  // const mutationObserver = new MutationObserver((mutations, observer) => {
+  //   if (minesweeperDialog.open) minesweeperIFrame.src = "https://mine.aquashdw.me";
+  //   else minesweeperIFrame.src = "";
+  // });
+  // mutationObserver.observe(minesweeperDialog, { attributes: true });
 </script>
 </body>
 </html>
